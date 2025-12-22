@@ -1,5 +1,4 @@
 #include "ScavTrap.hpp"
-#include "ClapTrap.hpp"
 
 ScavTrap::ScavTrap()
 {
@@ -41,5 +40,5 @@ ScavTrap& ScavTrap::operator = (ScavTrap &other)
 
 void ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap " << this->name << " is now in Gate Keeper Mode";
+	std::cout << "ScavTrap " << this->name << " is now in Gate Keeper Mode" << std::endl;
 }
