@@ -1,9 +1,10 @@
 #include "ClapTrap.hpp"
 
-#include <iostream>
-
 class ScavTrap : public ClapTrap
 {
+	protected:
+		std::string		getRobotType() const;
+
 	public:
 		ScavTrap();
 		ScavTrap(std::string name);

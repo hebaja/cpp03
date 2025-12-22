@@ -2,12 +2,12 @@
 
 ScavTrap::ScavTrap()
 {
-	std::cout << "Generic ScavTrap created" << std::endl;
+	std::cout << "Generic " << getRobotType() << "created" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "ScavTrap named " << name << " created" << std::endl;
+	std::cout << getRobotType() << "named " << name << " created" << std::endl;
 	hitPoints = 100;
 	energyPoints = 50;
 	attackDamage = 20;
@@ -15,18 +15,18 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap " << this->name << " destroyed" << std::endl;
+	std::cout << getRobotType() << this->name << " destroyed" << std::endl;
 }
 
 ScavTrap::ScavTrap(ScavTrap &other) : ClapTrap(other)
 {
-	std::cout << "ScavTrap " << other.name << " copied" << std::endl;
+	std::cout << getRobotType() << other.name << " copied" << std::endl;
 	*this = other;
 }
 
 ScavTrap& ScavTrap::operator = (ScavTrap &other)
 {
-	std::cout << "ScavTrap " << other.name << " assigned to another ScavTrap" << std::endl;
+	std::cout << getRobotType() << other.name << " assigned to another robot" << std::endl;
 	if (this != &other)
 	{
 		this->name = other.name;
@@ -35,10 +35,14 @@ ScavTrap& ScavTrap::operator = (ScavTrap &other)
 		this->attackDamage = other.attackDamage;
 	}
 	return (*this);
-
 }
 
 void ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap " << this->name << " is now in Gate Keeper Mode" << std::endl;
+	std::cout << getRobotType() << this->name << " is now in Gate Keeper Mode" << std::endl;
+}
+
+std::string		ScavTrap::getRobotType() const
+{
+	return "ScavTrap ";
 }
