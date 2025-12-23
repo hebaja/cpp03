@@ -1,5 +1,4 @@
 #include "ClapTrap.hpp"
-#include <iostream>
 
 ClapTrap::ClapTrap() : name("Generic"), hitPoints(10), energyPoints(10), attackDamage(0)
 {

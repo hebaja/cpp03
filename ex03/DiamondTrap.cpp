@@ -4,7 +4,10 @@
 DiamondTrap::DiamondTrap() : ClapTrap("Generic_clap_name")
 {
 	std::cout << "Generic DiamondTrap created" << std::endl;
-	// std::cout << "Generic " << getRobotType() << "created" << std::endl;
+	this->name = "Generic";
+	this->hitPoints = FragTrap::hitPoints;
+	this->energyPoints = ScavTrap::energyPoints;
+	this->attackDamage = FragTrap::attackDamage;
 }
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name")
@@ -21,10 +24,13 @@ DiamondTrap::~DiamondTrap()
 	std::cout << getRobotType() << this->name << " destroyed" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap &other) : ClapTrap(other), ScavTrap(other), FragTrap(other)
+DiamondTrap::DiamondTrap(DiamondTrap &other) : ClapTrap(other)
 {
 	std::cout << getRobotType() << other.name << " copied" << std::endl;
-	*this = other;
+	this->name = other.name;
+	this->hitPoints = other.hitPoints;
+	this->energyPoints = other.energyPoints;
+	this->attackDamage = other.attackDamage;
 }
 
 DiamondTrap& DiamondTrap::operator=(DiamondTrap &other)
@@ -32,10 +38,8 @@ DiamondTrap& DiamondTrap::operator=(DiamondTrap &other)
     std::cout << getRobotType() << other.name << " assigned to another robot" << std::endl;
 	if (this != &other)
 	{
+		ClapTrap::operator=(other);
 		this->name = other.name;
-		this->hitPoints = other.hitPoints;
-		this->energyPoints = other.energyPoints;
-		this->attackDamage = other.attackDamage;
 	}
 	return (*this);
 }

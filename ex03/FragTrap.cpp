@@ -1,8 +1,11 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap()
+FragTrap::FragTrap() : ClapTrap("Generic") 
 {
-	std::cout << "Generic " << getRobotType() << "created" << std::endl;
+	std::cout << getRobotType() << name << " created" << std::endl;
+    hitPoints = 100;
+    energyPoints = 100;
+    attackDamage = 30;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
@@ -21,7 +24,10 @@ FragTrap::~FragTrap()
 FragTrap::FragTrap(FragTrap &other) : ClapTrap(other)
 {
 	std::cout << getRobotType() << other.name << " copied" << std::endl;
-	*this = other;
+	this->name = other.name;
+	this->hitPoints = other.hitPoints;
+	this->energyPoints = other.energyPoints;
+	this->attackDamage = other.attackDamage;
 }
 
 FragTrap& FragTrap::operator=(FragTrap &other)

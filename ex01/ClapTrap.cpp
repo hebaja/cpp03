@@ -1,13 +1,13 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap() : name("Generic"), hitPoints(10), energyPoints(10), attackDamage(0)
 {
-	std::cout << "Generic " << getRobotType() << "created" << std::endl;
+	std::cout << name << " ClapTrap created" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0)
 {
-	std::cout << getRobotType() << "named " << name << " created" << std::endl;
+	std::cout << "ClapTrap named " << name << " created" << std::endl;
 }
 
 ClapTrap::~ClapTrap()
@@ -18,12 +18,15 @@ ClapTrap::~ClapTrap()
 ClapTrap::ClapTrap(ClapTrap &other)
 {
 	std::cout << getRobotType() << other.name << " copied" << std::endl;
-	*this = other;
+	this->name = other.name;
+	this->hitPoints = other.hitPoints;
+	this->energyPoints = other.energyPoints;
+	this->attackDamage = other.attackDamage;
 }
 
 ClapTrap& ClapTrap::operator=(ClapTrap &other)
 {
-	std::cout << getRobotType() << other.name << " assigned to another robot" << std::endl;
+	std::cout << getRobotType() << other.name << " assigned to another ClapTrap" << std::endl;
 	if (this != &other)
 	{
 		this->name = other.name;
@@ -77,11 +80,6 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	this->energyPoints--;
 	std::cout << getRobotType() << this->name << " repaired itself " << amount << " hit points!"
 		<< " Now it has " << this->hitPoints << " hit points!"<< std::endl; 
-}
-
-unsigned int	ClapTrap::getEnergyPoints()
-{
-	return this->energyPoints;
 }
 
 std::string		ClapTrap::getRobotType() const

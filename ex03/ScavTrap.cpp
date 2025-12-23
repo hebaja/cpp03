@@ -1,8 +1,11 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap() : ClapTrap("Generic")
 {
-	std::cout << "Generic " << getRobotType() << "created" << std::endl;
+	std::cout << getRobotType() << this->name << "created" << std::endl;
+	hitPoints = 100;
+	energyPoints = 50;
+	attackDamage = 20;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
@@ -21,7 +24,10 @@ ScavTrap::~ScavTrap()
 ScavTrap::ScavTrap(ScavTrap &other) : ClapTrap(other)
 {
 	std::cout << getRobotType() << other.name << " copied" << std::endl;
-	*this = other;
+	this->name = other.name;
+	this->hitPoints = other.hitPoints;
+	this->energyPoints = other.energyPoints;
+	this->attackDamage = other.attackDamage;
 }
 
 ScavTrap& ScavTrap::operator = (ScavTrap &other)
