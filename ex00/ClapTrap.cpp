@@ -1,9 +1,9 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap() : name("Generic"), hitPoints(10), energyPoints(10), attackDamage(0)
 {
-	std::cout << "Generic ClapTrap created" << std::endl;
+	std::cout << name << " ClapTrap created" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0)
@@ -19,7 +19,10 @@ ClapTrap::~ClapTrap()
 ClapTrap::ClapTrap(ClapTrap &other)
 {
 	std::cout << "ClapTrap " << other.name << " copied" << std::endl;
-	*this = other;
+	this->name = other.name;
+	this->hitPoints = other.hitPoints;
+	this->energyPoints = other.energyPoints;
+	this->attackDamage = other.attackDamage;
 }
 
 ClapTrap& ClapTrap::operator=(ClapTrap &other)
@@ -78,9 +81,4 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	this->energyPoints--;
 	std::cout << "ClapTrap " << this->name << " repaired itself " << amount << " hit points!"
 		<< " Now it has " << this->hitPoints << " hit points!"<< std::endl; 
-}
-
-unsigned int	ClapTrap::getEnergyPoints()
-{
-	return this->energyPoints;
 }
