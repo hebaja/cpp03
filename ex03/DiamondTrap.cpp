@@ -3,20 +3,20 @@
 
 DiamondTrap::DiamondTrap() : ClapTrap("Generic_clap_name")
 {
-	std::cout << "Generic DiamondTrap created" << std::endl;
 	this->name = "Generic";
+	std::cout << this->name << " " << getRobotType() << "created" << std::endl;
 	this->hitPoints = FragTrap::hitPoints;
 	this->energyPoints = ScavTrap::energyPoints;
 	this->attackDamage = FragTrap::attackDamage;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name")
+DiamondTrap::DiamondTrap(std::string trapName) : ClapTrap(trapName + "_clap_name")
 {
-	std::cout << "DimondTrap named " << name << " created" << std::endl;
-	this->name = name;
-	this->hitPoints = FragTrap::hitPoints;
-	this->energyPoints = ScavTrap::energyPoints;
-	this->attackDamage = FragTrap::attackDamage;
+	std::cout << getRobotType() << "named " << trapName << " created" << std::endl;
+	this->name = trapName;
+	this->hitPoints = 100;
+	this->energyPoints = 50;
+	this->attackDamage = 30;
 }
 
 DiamondTrap::~DiamondTrap()
@@ -24,7 +24,7 @@ DiamondTrap::~DiamondTrap()
 	std::cout << getRobotType() << this->name << " destroyed" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap &other) : ClapTrap(other)
+DiamondTrap::DiamondTrap(DiamondTrap &other) : ClapTrap(other), ScavTrap(other), FragTrap(other) // Check this before finishing
 {
 	std::cout << getRobotType() << other.name << " copied" << std::endl;
 	this->name = other.name;
@@ -44,11 +44,6 @@ DiamondTrap& DiamondTrap::operator=(DiamondTrap &other)
 	return (*this);
 }
 
-// std::string             DiamondTrap::getRobotType() const
-// {
-// 	return "DiamondTrap ";
-// }
-
 void DiamondTrap::attack(std::string target)
 {
 	ScavTrap::attack(target);
@@ -57,4 +52,9 @@ void DiamondTrap::attack(std::string target)
 void DiamondTrap::whoAmI()
 {
 	std::cout << "Hello I am " << name << " but my ClapTrap name is " << ClapTrap::name << std::endl;
+}
+
+std::string		DiamondTrap::getRobotType() const
+{
+	return "DiamondTrap ";
 }

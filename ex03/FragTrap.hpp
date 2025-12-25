@@ -2,8 +2,8 @@
 
 class FragTrap : virtual public ClapTrap
 {
-	// protected:
-	// 	std::string		getRobotType() const;
+	protected:
+		std::string		getRobotType() const;
 
 	 public:
 		FragTrap();

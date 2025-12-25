@@ -5,9 +5,9 @@ ClapTrap::ClapTrap() : name("Generic"), hitPoints(10), energyPoints(10), attackD
 	std::cout << name << " ClapTrap created" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0)
+ClapTrap::ClapTrap(std::string trapName) : name(trapName), hitPoints(10), energyPoints(10), attackDamage(0)
 {
-	std::cout << "ClapTrap named " << name << " created" << std::endl;
+	std::cout << "ClapTrap named " << trapName << " created" << std::endl;
 }
 
 ClapTrap::~ClapTrap()

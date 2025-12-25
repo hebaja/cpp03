@@ -2,8 +2,8 @@
 
 class ScavTrap : virtual public ClapTrap
 {
-	// protected:
-	// 	std::string		getRobotType() const;
+	protected:
+		std::string		getRobotType() const;
 
 	public:
 		ScavTrap();
@@ -11,6 +11,5 @@ class ScavTrap : virtual public ClapTrap
 		~ScavTrap();
 		ScavTrap(ScavTrap &other);
 		ScavTrap& operator = (ScavTrap &other);
-		// void attack(std::string target);
 		void guardGate();
 };

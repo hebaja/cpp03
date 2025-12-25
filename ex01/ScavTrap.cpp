@@ -2,15 +2,15 @@
 
 ScavTrap::ScavTrap() : ClapTrap("Generic")
 {
-	std::cout << getRobotType() << this->name << "created" << std::endl;
+	std::cout << getRobotType() << this->name << " created" << std::endl;
 	hitPoints = 100;
 	energyPoints = 50;
 	attackDamage = 20;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+ScavTrap::ScavTrap(std::string trapName) : ClapTrap(trapName)
 {
-	std::cout << getRobotType() << "named " << name << " created" << std::endl;
+	std::cout << getRobotType() << "named " << trapName << " created" << std::endl;
 	hitPoints = 100;
 	energyPoints = 50;
 	attackDamage = 20;
@@ -45,7 +45,10 @@ ScavTrap& ScavTrap::operator = (ScavTrap &other)
 
 void ScavTrap::guardGate()
 {
-	std::cout << getRobotType() << this->name << " is now in Gate Keeper Mode" << std::endl;
+	if (this->hitPoints == 0)
+		std::cout << getRobotType() << this->name << " is dead and can't be in Gate Keeper Mode" << std::endl;
+	else
+		std::cout << getRobotType() << this->name << " is now in Gate Keeper Mode" << std::endl;
 }
 
 std::string		ScavTrap::getRobotType() const

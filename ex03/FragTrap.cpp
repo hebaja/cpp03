@@ -8,9 +8,9 @@ FragTrap::FragTrap() : ClapTrap("Generic")
     attackDamage = 30;
 }
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name)
+FragTrap::FragTrap(std::string trapName) : ClapTrap(trapName)
 {
-	std::cout << getRobotType() << "named " << name << " created" << std::endl;
+	std::cout << getRobotType() << "named " << trapName << " created" << std::endl;
     hitPoints = 100;
     energyPoints = 100;
     attackDamage = 30;
@@ -45,10 +45,13 @@ FragTrap& FragTrap::operator=(FragTrap &other)
 
 void FragTrap::highFivesGuys(void)
 {
-	std::cout << getRobotType() << this->name << " is requesting high-fives now" << std::endl;
+	if (this->hitPoints == 0)
+		std::cout << getRobotType() << this->name << " can't request high-fives because it's dead" << std::endl;
+	else
+		std::cout << getRobotType() << this->name << " is requesting high-fives now" << std::endl;
 }
 
-// std::string		FragTrap::getRobotType() const
-// {
-// 	return "FragTrap ";
-// }
+std::string		FragTrap::getRobotType() const
+{
+	return "FragTrap ";
+}

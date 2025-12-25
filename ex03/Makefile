@@ -1,7 +1,7 @@
 CXX = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = DiamondTrap
-SRC = main.cpp FragTrap.cpp ScavTrap.cpp DiamondTrap.cpp ClapTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 SRC_DIR = .
 SRCS=$(addprefix $(SRC_DIR)/, $(SRC))
 OBJS = $(SRCS:.cpp=.o)
