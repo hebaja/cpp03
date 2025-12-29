@@ -32,9 +32,9 @@ ScavTrap::ScavTrap(ScavTrap &other) : ClapTrap(other)
 
 ScavTrap& ScavTrap::operator = (ScavTrap &other)
 {
-	std::cout << getRobotType() << other.name << " assigned to another robot" << std::endl;
 	if (this != &other)
 	{
+		std::cout << getRobotType() << other.name << " assigned to another robot" << std::endl;
 		this->name = other.name;
 		this->hitPoints = other.hitPoints;
 		this->energyPoints = other.energyPoints;

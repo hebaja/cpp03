@@ -39,10 +39,5 @@ int	main()
 	e.attack("Wild dog");
 	e.beRepaired(2);
 
-	for (int i = 0; i < 9; i++) {
-		a.attack("ghoul");
-	}
-	a.beRepaired(1);
-
 	return (0);
 }

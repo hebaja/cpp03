@@ -32,9 +32,9 @@ FragTrap::FragTrap(FragTrap &other) : ClapTrap(other)
 
 FragTrap& FragTrap::operator=(FragTrap &other)
 {
-	std::cout << getRobotType() << other.name << " assigned to another robot" << std::endl;
     if (this != &other)
     {
+		std::cout << getRobotType() << other.name << " assigned to another robot" << std::endl;
         this->name = other.name;
         this->hitPoints = other.hitPoints;
         this->energyPoints = other.energyPoints;

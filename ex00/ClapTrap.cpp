@@ -26,9 +26,9 @@ ClapTrap::ClapTrap(ClapTrap &other)
 
 ClapTrap& ClapTrap::operator=(ClapTrap &other)
 {
-	std::cout << "ClapTrap " << other.name << " assigned to another ClapTrap" << std::endl;
 	if (this != &other)
 	{
+		std::cout << "ClapTrap " << other.name << " assigned to another ClapTrap" << std::endl;
 		this->name = other.name;
 		this->hitPoints = other.hitPoints;
 		this->energyPoints = other.energyPoints;

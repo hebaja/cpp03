@@ -24,7 +24,7 @@ DiamondTrap::~DiamondTrap()
 	std::cout << getRobotType() << this->name << " destroyed" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap &other) : ClapTrap(other), ScavTrap(other), FragTrap(other) // Check this before finishing
+DiamondTrap::DiamondTrap(DiamondTrap &other) : ClapTrap(other)
 {
 	std::cout << getRobotType() << other.name << " copied" << std::endl;
 	this->name = other.name;
@@ -35,9 +35,9 @@ DiamondTrap::DiamondTrap(DiamondTrap &other) : ClapTrap(other), ScavTrap(other),
 
 DiamondTrap& DiamondTrap::operator=(DiamondTrap &other)
 {
-    std::cout << getRobotType() << other.name << " assigned to another robot" << std::endl;
 	if (this != &other)
 	{
+		std::cout << getRobotType() << other.name << " assigned to another robot" << std::endl;
 		ClapTrap::operator=(other);
 		this->name = other.name;
 	}
